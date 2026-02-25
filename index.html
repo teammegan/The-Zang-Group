@@ -1,49 +1,163 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Zang Group</title>
+
+  <!-- Font Awesome (for button icons) -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
   <style>
-    body {
+    :root{
+      --bg: #111;
+      --text: #fff;
+      --muted: rgba(255,255,255,0.72);
+      --card: rgba(255,255,255,0.08);
+      --cardHover: rgba(255,255,255,0.12);
+      --border: rgba(255,255,255,0.16);
+      --shadow: 0 10px 22px rgba(0,0,0,0.35);
+      --shadowHover: 0 14px 30px rgba(0,0,0,0.45);
+      --radius: 12px;
+      --maxw: 420px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body{
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(1200px 600px at 50% -200px, rgba(255,255,255,0.08), transparent 60%),
+                  var(--bg);
+      color: var(--text);
       font-family: Arial, sans-serif;
+      padding: 48px 18px;
+    }
+
+    .wrap{
+      width: 100%;
+      max-width: var(--maxw);
       text-align: center;
-      background: #111;
-      color: white;
-      padding: 40px;
     }
-    h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
+
+    /* Logo area */
+    .brand{
+      display: inline-block;
+      margin-bottom: 14px;
     }
-    p {
-      color: #bbb;
-      margin-bottom: 30px;
-    }
-    .link {
-      display: block;
-      background: white;
-      color: black;
-      padding: 15px;
-      margin: 15px auto;
-      width: 260px;
+    .brand a{
+      display: inline-block;
       text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
     }
-    .link:hover {
-      background: #ddd;
+    .brand img{
+      width: 100%;
+      height: auto;
+      max-width: 210px;     /* requested 180–220px range */
+      display: block;
+      margin: 0 auto;
+    }
+
+    .tagline{
+      margin: 10px auto 28px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+      letter-spacing: 0.2px;
+    }
+
+    .links{
+      display: grid;
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    .link{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px; /* spacing between icon and text */
+      width: 100%;
+      padding: 14px 16px;
+      text-decoration: none;
+      color: var(--text);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      will-change: transform;
+    }
+
+    .link i{
+      font-size: 16px;
+      line-height: 1;
+      opacity: 0.95;
+    }
+
+    .link:hover{
+      transform: translateY(-3px);
+      background: var(--cardHover);
+      box-shadow: var(--shadowHover);
+      border-color: rgba(255,255,255,0.28);
+    }
+
+    .link:active{
+      transform: translateY(-1px);
+    }
+
+    /* Optional small footer spacing */
+    .footnote{
+      margin-top: 18px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 360px){
+      .tagline{ font-size: 15px; }
+      .brand img{ max-width: 190px; }
     }
   </style>
 </head>
+
 <body>
+  <main class="wrap">
+    <!-- Logo replaces “The Zang Group” text -->
+    <div class="brand">
+      <a href="https://zangrealty.com/" aria-label="The Zang Group official website">
+        <!-- Change src if your filename differs -->
+        <img src="Black Logo with Name.png" alt="The Zang Group Logo" />
+      </a>
+    </div>
 
-  <h1>The Zang Group</h1>
-  <p>Connect with us</p>
+    <!-- New premium tagline (short, confident, modern) -->
+    <p class="tagline">Luxury real estate, led with precision.</p>
 
-  <a class="link" href="https://www.facebook.com/ZangRealty/">Facebook</a>
-  <a class="link" href="https://www.instagram.com/zang_re_team/">Instagram</a>
-  <a class="link" href="https://zangrealty.com/">Official Website</a>
+    <!-- Buttons with icons on the left -->
+    <div class="links">
+      <a class="link" href="https://www.facebook.com/ZangRealty/" target="_blank" rel="noopener">
+        <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+        <span>Facebook</span>
+      </a>
 
+      <a class="link" href="https://www.instagram.com/zang_re_team/" target="_blank" rel="noopener">
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+        <span>Instagram</span>
+      </a>
+
+      <a class="link" href="https://zangrealty.com/" target="_blank" rel="noopener">
+        <i class="fa-solid fa-globe" aria-hidden="true"></i>
+        <span>Official Website</span>
+      </a>
+    </div>
+  </main>
 </body>
 </html>
